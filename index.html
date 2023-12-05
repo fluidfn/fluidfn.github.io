@@ -1,1 +1,155 @@
-fluid
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid | Home</title>
+    <style>
+      body {
+        background-color: #000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        position: relative;
+      }
+
+      img {
+        width: 100px;
+        opacity: 0;
+        animation: fadeIn 1s forwards, moveUp 1s forwards;
+        position: absolute;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes moveUp {
+        from {
+          transform: translateY(-20px);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      #faqButton {
+        display: none;
+        top: 65%;
+        left: 45%;
+        background-color: rgba(26, 37, 51, 0.8);
+        color: #ecf0f1;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        position: absolute;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+
+      #faqButton:hover {
+        background-color: rgba(39, 57, 71, 0.8);
+        color: #bdc3c7;
+      }
+
+      #pricesButton {
+        display: none;
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(26, 37, 51, 0.8);
+        color: #ecf0f1;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        position: absolute;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+
+      #pricesButton:hover {
+        background-color: rgba(39, 57, 71, 0.8);
+        color: #bdc3c7;
+      }
+
+      @keyframes buttonAnimation {
+        from {
+          transform: scale(0);
+        }
+
+        to {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes moveUp2 {
+        from {
+          transform: translateY(-100px);
+        }
+
+        to {
+          transform: translateY(0);
+        }
+      }
+
+      body::before {
+        content: "@Fluid";
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: rgba(255, 255, 255, 0.5);
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        z-index: 1;
+      }
+      
+      #cheatingText {
+        animation: fadeIn 1s forwards, moveUp2 1s forwards;
+        color: #ecf0f1;
+        font-family: 'Roboto', sans-serif;
+        font-size: 18px;
+        text-align: center;
+        margin-top: 170px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+        </style>
+      </head>
+      <body>
+        <img src="fluid.png" alt="Fluid Logo" id="logo">
+
+        <p id="cheatingText">Cheating Softwares</p>
+    <button id="faqButton" onclick="window.location.href='https://fluidfn.github.io/faq'">FAQ</button>
+    <button id="pricesButton" onclick="window.location.href='https://fluidfn.github.com/prices'">Prices</button>
+    <script>
+      const logo = document.getElementById('logo');
+      const faqButton = document.getElementById('faqButton');
+      const pricesButton = document.getElementById('pricesButton');
+      logo.addEventListener('animationend', () => {
+        faqButton.style.display = 'inline-block';
+        pricesButton.style.display = 'inline-block';
+        faqButton.style.animation = 'buttonAnimation 0.5s forwards';
+        pricesButton.style.animation = 'buttonAnimation 0.5s forwards';
+      });
+    </script>
+  </body>
+</html>
