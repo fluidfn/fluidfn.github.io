@@ -44,48 +44,28 @@
         }
       }
 
-      #faqButton {
-        display: none;
+      .button-container {
+        position: absolute;
         top: 65%;
-        left: 45%;
-        background-color: rgba(26, 37, 51, 0.8);
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .button {
+        background-color: black; /* Change the background color to black */
         color: #ecf0f1;
         padding: 10px 20px;
         font-size: 16px;
-        border: none;
+        border: 1px solid #ecf0f1; /* White outline */
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-        position: absolute;
         box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
       }
 
-      #faqButton:hover {
-        background-color: rgba(39, 57, 71, 0.8);
-        color: #bdc3c7;
-      }
-
-      #pricesButton {
-        display: none;
-        top: 65%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(26, 37, 51, 0.8);
-        color: #ecf0f1;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-        position: absolute;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-      }
-
-      #pricesButton:hover {
-        background-color: rgba(39, 57, 71, 0.8);
-        color: #bdc3c7;
-      }
+      .button:hover { background-color: rgba(26, 0, 0, 0.8); color: #bdc3c7; }
 
       @keyframes buttonAnimation {
         from {
@@ -131,22 +111,27 @@
         text-transform: uppercase;
         letter-spacing: 2px;
       }
-
-        </style>
-      </head>
-      <body>
-        <img src="fluid.png" alt="Fluid Logo" id="logo">
-
-        <p id="cheatingText">Cheating Softwares</p>
-    <button id="faqButton" onclick="window.location.href='https://fluidfn.github.io/faq'">FAQ</button>
-    <button id="pricesButton" onclick="window.location.href='https://fluidfn.github.com/prices'">Prices</button>
+    </style>
+  </head>
+  <body>
+<img src="fluid.png" alt="Fluid Logo" id="logo">
+    <p id="cheatingText">Cheating Softwares</p>
+    <div class="button-container">
+      <button class="button" id="faqButton" onclick="window.location.href='https://fluidfn.github.io/faq'">FAQ</button>
+      <button class="button" id="pricesButton" onclick="window.location.href='https://fluidfn.github.com/prices'">Prices</button>
+    </div>
     <script>
       const logo = document.getElementById('logo');
       const faqButton = document.getElementById('faqButton');
       const pricesButton = document.getElementById('pricesButton');
+      const buttonContainer = document.querySelector('.button-container');
+
+      // Initially hide the buttons
+      buttonContainer.style.opacity = 0;
+
       logo.addEventListener('animationend', () => {
-        faqButton.style.display = 'inline-block';
-        pricesButton.style.display = 'inline-block';
+        // Reveal the buttons with animation
+        buttonContainer.style.opacity = 1;
         faqButton.style.animation = 'buttonAnimation 0.5s forwards';
         pricesButton.style.animation = 'buttonAnimation 0.5s forwards';
       });
